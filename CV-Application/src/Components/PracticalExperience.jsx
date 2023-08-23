@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import '../style.css'
 
-const PracticalExperience = () => {
+const PracticalExperience = (props) => {
     const [title, setTitle] = useState('');
     const [company, setCompany] = useState('');
     const [description, setDescription] = useState('');
@@ -11,6 +12,11 @@ const PracticalExperience = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // You can perform form submission actions here
+        props.setJobTitle(title);
+        props.setCompanyName(company);
+        props.setJobDescription(description);
+        
+
     };
 
     return ( 

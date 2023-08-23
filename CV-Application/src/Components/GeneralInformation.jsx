@@ -1,16 +1,22 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import '../style.css'
-const GeneralInformation = () => {
+const GeneralInformation = (props) => {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [city, setCity] = useState('');
-    const [province, setProvince] = useState('');
+    const [linkedin, setLinkedin] = useState('');
+    const [github, setGithub] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // You can perform form submission actions here
+        props.setFullName(fullName);
+        props.setEmail(email);
+        props.setPhoneNumber(phoneNumber);
+        props.setLinkedin(linkedin);
+        props.setGithub(github);
+
     };
 
     return (
@@ -49,22 +55,22 @@ const GeneralInformation = () => {
                     />
                 </label>
                 <label>
-                    City:
+                    LinkedIn:
                     <input
                         type="text"
-                        value={city}
-                        placeholder='Enter Your City'
-                        onChange={(e) => setCity(e.target.value)}
+                        value={linkedin}
+                        placeholder='Enter Your linkedin'
+                        onChange={(e) => setLinkedin(e.target.value)}
                         required
                     />
                 </label>
                 <label>
-                    Province:
+                    Github:
                     <input
                         type="text"
-                        value={province}
-                        placeholder='Enter Your Province'
-                        onChange={(e) => setProvince(e.target.value)}
+                        value={github}
+                        placeholder='Enter Your github link'
+                        onChange={(e) => setGithub(e.target.value)}
                         required
                     />
                 </label>
